@@ -32,6 +32,10 @@ WIN_IMAGE = escalar_imagenes_fondo(f"{PATH}/you_win.png",SIZE_SCREEN)
 
 # musica
 WIN_MUSIC = pygame.mixer.Sound(f"{PATH}/Game Win.mp3")
+WIN_MUSIC.set_volume(0.07)
 LOSE_MUSIC = pygame.mixer.Sound(f"{PATH}/Game Over.mp3")
+LOSE_MUSIC.set_volume(0.07)
 JUGAR_MUSIC = pygame.mixer.Sound(f"{PATH}/wolf_play.mp3")
+JUGAR_MUSIC.set_volume(0.07)
 MENU_MUSIC = pygame.mixer.Sound(f"{PATH}/Toxicity.mp3")
+MENU_MUSIC.set_volume(0.05)

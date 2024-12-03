@@ -71,9 +71,6 @@ def guardar_puntuacion(screen:pygame.Surface,puntos_en_pantalla:pygame.Surface,d
         die (bool): indica si el jugador perdio o gano
         cont_puntos (int): la puntuacion final del jugador
     """
-    WIN_MUSIC.set_volume(0.07)
-    LOSE_MUSIC.set_volume(0.07)
-    
     prueba = FUENTE_3.render("Ingrese su Nombre",0,"black")
     nombre_ingresado = ""
     flag = True
@@ -198,7 +195,7 @@ def jugar(screen:pygame.Surface,dificultad:tuple):
     musica_pausada = False
     you_die = False
     JUGAR_MUSIC.play()
-    JUGAR_MUSIC.set_volume(0.05)
+    
     
     #------------------------------------------------
     
@@ -303,7 +300,7 @@ def menu(screen:pygame.Surface):
     
     musica_pausada = False
     MENU_MUSIC.play()
-    MENU_MUSIC.set_volume(0.05)
+    
     
     clock = pygame.time.Clock()
 
