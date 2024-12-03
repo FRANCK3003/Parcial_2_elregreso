@@ -17,7 +17,6 @@ def escalar_imagenes_fondo (direc_imagen:str,tamanio:tuple):
 def banderas(casillas:list):
     for boton in casillas:
         if boton['boton_rec'].collidepoint(pygame.mouse.get_pos()):
-            print(boton)
             if boton['clicado'] == False:
                 if boton['marcado'] == False:
                     boton['marcado'] = True
