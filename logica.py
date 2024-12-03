@@ -86,9 +86,3 @@ def detectar_bombas(matriz,lista_bombas):
                 
                 if matriz[ny][nx] != -1:
                     matriz[ny][nx] += 1
-
-
-def parseo_dato(matriz):
-    for y in range(len(matriz)):
-        for x in range(len(matriz)):
-            matriz[y][x] = str(matriz[y][x])
