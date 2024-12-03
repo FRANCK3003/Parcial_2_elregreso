@@ -1,5 +1,4 @@
 import pygame
-# from botones import escalar_imagenes_fondo
 from estados import escalar_imagenes_fondo
 
 # resolucion de pantalla

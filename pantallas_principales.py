@@ -24,6 +24,7 @@ def tabla_puntuaciones(screen:pygame.Surface,lista_puntaje:list,aux:int):
         screen.blit(fuentex2,(700,pading))
     screen.blit(encabezados,(90,10))
 
+
 def ver_puntajes(screen:pygame.Surface):
     """
     obtiene los valores de puntuacion e inicializa la tabla de puntuaciones,
@@ -60,6 +61,7 @@ def ver_puntajes(screen:pygame.Surface):
         pygame.display.update()
     menu(screen)
 
+
 def guardar_puntuacion(screen:pygame.Surface,puntos_en_pantalla:pygame.Surface,die:bool,cont_puntos:int):
     """
     Maneja la pantalla de final de juego, permitiendo al jugador ingresar su nombre
@@ -95,6 +97,7 @@ def guardar_puntuacion(screen:pygame.Surface,puntos_en_pantalla:pygame.Surface,d
                     cargar_archivo('Player score/player_score.json',{"nombre":nombre_ingresado,"puntuacion":cont_puntos})
                     flag = False
                     LOSE_MUSIC.stop()
+                    WIN_MUSIC.stop()
                     niveles(screen)
                 elif event.key == pygame.K_BACKSPACE:
                         nombre_ingresado = nombre_ingresado[0:-1]                                      
@@ -109,6 +112,7 @@ def guardar_puntuacion(screen:pygame.Surface,puntos_en_pantalla:pygame.Surface,d
 
 
         pygame.display.update()
+
 
 def verificar_victoria(juego)->bool:
     """Ganas de forma predeterminada, mientras que todos los botones que NO sean -1 esten en False
@@ -126,6 +130,7 @@ def verificar_victoria(juego)->bool:
             retorno = False
     return retorno
 
+
 def actualizar_tiempo(cont_min:int, cont_seg:int)->tuple:
     """suma 1 al cont_seg, si este llega a 60 se le suma 1 al cont_minutos
 
@@ -141,6 +146,7 @@ def actualizar_tiempo(cont_min:int, cont_seg:int)->tuple:
         cont_min += 1
         cont_seg = 0
     return cont_min, cont_seg
+
 
 def pausar_play_musica(botton_music:dict,flag_musica:bool,musica:pygame.mixer.music)->bool:
     """pausa o reproduce la musica dada
@@ -163,6 +169,7 @@ def pausar_play_musica(botton_music:dict,flag_musica:bool,musica:pygame.mixer.mu
             botton_music['texto'] = 'Play'
             flag_musica = True
     return flag_musica
+
 
 def jugar(screen:pygame.Surface,dificultad:tuple):
     """maneja la pantalla de juego inicializando los botones dependiendo de la dificultad
@@ -249,6 +256,7 @@ def jugar(screen:pygame.Surface,dificultad:tuple):
         pygame.display.update()
     guardar_puntuacion(screen,puntos_en_pantalla,you_die,contador_puntos)
 
+
 def niveles(screen:pygame.Surface):
     """maneja la pantalla de Seleccion de Dificultad
 
@@ -286,6 +294,7 @@ def niveles(screen:pygame.Surface):
         animacion_boton(screen,boton_dificil,FUENTE_1,'boton_rec',boton_dificil['color'],0,("black"))
         animacion_boton(screen,boton_volver,FUENTE_1,'boton_rec',boton_volver['color'],20,("white"))
         pygame.display.update()
+
 
 def menu(screen:pygame.Surface):
     """Maneja Menu principal

@@ -12,6 +12,7 @@ def pintar_centrar_texto(screen:pygame.Surface,text_render:str,text_rect:pygame.
     """
     screen.blit(text_render,(text_rect.x+(text_rect.width - text_render.get_width())/2,text_rect.y+(text_rect.height - text_render.get_height())/2))
 
+
 def crear_boton(boton_rec:pygame.Rect,color_rec:tuple,texto:str,texto_color:tuple):
     """ 
     Crea un botón representado como un diccionario, con caracteristicas para dibujar, 
@@ -42,7 +43,7 @@ def crear_boton(boton_rec:pygame.Rect,color_rec:tuple,texto:str,texto_color:tupl
     return boton
 
 
-def casilla_juego(boton_rec,color_rec,texto,texto_color,fila,columna):
+def casilla_juego(boton_rec:pygame.Rect,color_rec:tuple,texto:str,texto_color:tuple,fila:int,columna:int):
     """ Crea un botón representado como un diccionario, con caracteristicas para dibujar, 
     manejar eventos.
     
@@ -104,7 +105,7 @@ def animacion_boton(screen:pygame.surface, boton:dict,fuente:pygame.font.Font, p
         pintar_centrar_texto(screen,fuentex,boton['boton_rec'])
 
 
-def animacion_cacilla(screen:pygame.Surface, boton:dict,fuente:pygame.font.Font, parametro:pygame.Rect, color:tuple, borde:int,texto_color:tuple,imagen=None):
+def animacion_cacilla(screen:pygame.Surface, boton:dict,fuente:pygame.font.Font, parametro:pygame.Rect, color:tuple, borde:int,texto_color:tuple):
     """
         Realiza una animación para un botón o casilla en función de su estado,renderiza el texto
     Args:
@@ -117,7 +118,7 @@ def animacion_cacilla(screen:pygame.Surface, boton:dict,fuente:pygame.font.Font,
         texto_color (tuple): color del texto
     """
     # si lo pones en  False activas hacks ahr
-    if boton['evento'] == True:
+    if boton['evento'] == False:
         pygame.draw.rect(screen, color, boton[parametro],border_radius=borde)
         fuentex = fuente.render(boton['texto'],True,texto_color)
         pintar_centrar_texto(screen,fuentex,boton['boton_rec'])
@@ -153,15 +154,4 @@ def crear_botones_matriz(matriz):
     for fila in range(len(matriz)):
         for columna in range(len(matriz[0])):
             cuadricula.append(casilla_juego((cordenada_x + columna * 27,cordenada_y + fila * 27,20, 20),(100, 100, 100),str(matriz[fila][columna]),(100, 100, 100),fila,columna))
-    
-    
-    # cuadricula = []
-    # for fila in range(len(matriz)):
-    #     cordenada_y +=27
-    #     if fila != 0:
-    #         cordenada_x -= 25 * len(matriz[0])
-    #     for columna in range(len(matriz[0])):
-    #         cordenada_x += 25
-    #         cuadricula.append(casilla_juego((cordenada_x,cordenada_y,20,20),(100,100,100),str(matriz[fila][columna]),(100,100,100),fila,columna))
-    
     return cuadricula

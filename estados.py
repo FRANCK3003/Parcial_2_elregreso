@@ -14,6 +14,7 @@ def escalar_imagenes_fondo (direc_imagen:str,tamanio:tuple):
     imagen = pygame.transform.scale(imagen,(tamanio))
     return imagen
 
+
 def banderas(casillas:list):
     """
     Alterna el estado de marcado (bandera) en las casillas del tablero de juego al hacer clic derecho.
@@ -27,6 +28,7 @@ def banderas(casillas:list):
                     boton['marcado'] = True
                 else:
                     boton['marcado'] = False
+
 
 def boton_clicado(juego:list,musica:pygame.mixer.Sound,cont_puntos:int,flag_juego,flag2)->tuple:
     """Procesa el clic de una casilla del tablero, actualizando su estado y maneja estados del juego.
