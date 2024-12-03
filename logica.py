@@ -17,7 +17,7 @@ def inicializar_matriz(cant_filas:int, cant_columnas:int)->list:
     return matriz
 
 
-def crear_bombas(cantidad,matriz):
+def crear_bombas(cantidad:int,matriz:list):
     """
     Genera un conjunto de coordenadas aleatorias para colocar bombas en una matriz.
 
@@ -39,7 +39,7 @@ def crear_bombas(cantidad,matriz):
     return lista_bombas
 
 
-def cargar_bomba(matriz, lista_bombas):
+def cargar_bomba(matriz:list, lista_bombas:set):
     """
     Coloca las bombas en una matriz modificando las posiciones indicadas.
 
@@ -48,20 +48,20 @@ def cargar_bomba(matriz, lista_bombas):
     lista_bombas (set): Un conjunto de tuplas, donde cada tupla representa las coordenadas de una bomba a colocar en la matriz.
 
     Retorna:
-    None: La función modifica la matriz proporcionada directamente.
+    None: modifica la matriz directamente.
     """
     for y,x in lista_bombas:
         matriz[y][x] = -1
 
 #                               Lista de seters
-def detectar_bombas(matriz,lista_bombas):
+def detectar_bombas(matriz:list,lista_bombas:set):
     """
     Actualiza una matriz indicando el número de bombas adyacentes a cada celda.
 
     Parámetros:
-    matriz (list): La matriz a modificar. Las celdas se incrementarán por cada bomba adyacente en las 8 direcciones (horizontal, vertical, diagonal)
+    matriz (list): La matriz a modificar. Las celdas se incrementarán por cada bomba adyacente en las 8 direcciones
     
-    lista_bombas (set): Un conjunto de tuplas, donde cada tupla representa las coordenadas de una bomba en la matriz.
+    lista_bombas (set): Un conjunto de tuplas.
 
     """
     filas = len(matriz)
